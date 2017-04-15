@@ -11,12 +11,11 @@ mathjax: true
 * content
 {:toc}
 
-
-
-
-
-
 Mac OS X Finder 进入的每个目录都会有个名为 .DS_Store 的文件, 用于存储当前文件夹的一些详细的 metadata 信息，例如文件夹的排序等信息。在每次提交代码时，我们需要去忽略这类文件的提交。那怎么在 git commit 过程中忽略这种类型的文件呢？
+
+
+
+
 
 ----
 
