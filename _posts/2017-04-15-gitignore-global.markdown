@@ -74,7 +74,9 @@ core.excludesfile=/.gitignore_global
 之后即不用在每个新的 Git Repo 的` .gitignore `文件中忽略` .DS_Store `了。如果是开源项目，其实自己更偏爱在每个 Git Repo 的` .gitignore `文件中也添加上需要忽略的文件，已 Pull Request 过程中忽略文件。
 
 > 参考：
+> 
 > [Ignoring files](https://help.github.com/articles/ignoring-files/)
+> 
 > [What is a .DS_Store file?](http://osxdaily.com/2009/12/31/what-is-a-ds_store-file/)
 
 
