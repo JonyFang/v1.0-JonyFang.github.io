@@ -11,7 +11,14 @@ mathjax: true
 * content
 {:toc}
 
+
+
+
+
+
 Mac OS X Finder 进入的每个目录都会有个名为 .DS_Store 的文件, 用于存储当前文件夹的一些详细的 metadata 信息，例如文件夹的排序等信息。在每次提交代码时，我们需要去忽略这类文件的提交。那怎么在 git commit 过程中忽略这种类型的文件呢？
+
+----
 
 # Git Repo 内忽略文件
 可以通过在` .gitignore `文件中忽略` .DS_Store `文件。
@@ -20,6 +27,8 @@ Mac OS X Finder 进入的每个目录都会有个名为 .DS_Store 的文件, 用
 ## Mac OS X
 .DS_Store
 ```
+
+----
 
 # 本地 Git Config
 通过如下命令查看现有 Git 配置：
@@ -60,6 +69,8 @@ git config --list
 ```bash
 core.excludesfile=/.gitignore_global
 ```
+
+----
 
 之后即不用在每个新的 Git Repo 的` .gitignore `文件中忽略` .DS_Store `了。如果是开源项目，其实自己更偏爱在每个 Git Repo 的` .gitignore `文件中也添加上需要忽略的文件，已 Pull Request 过程中忽略文件。
 
