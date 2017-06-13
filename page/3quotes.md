@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 收录
+title: Quotes
 permalink: /collection/
 icon: bookmark
 type: page
