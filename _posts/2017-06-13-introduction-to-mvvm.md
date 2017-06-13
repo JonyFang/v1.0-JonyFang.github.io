@@ -11,44 +11,42 @@ mathjax: true
 * content
 {:toc}
 
-# 前言
-
-这一篇是对 Objc.io 中《MVVM 介绍》的总结，罗列了自己阅读过程中记录的点。也可以前往 Objc.io 查看原文。中文版:[《MVVM 介绍》](https://objccn.io/issue-13-1/)英文版: [Introduction to MVVM](http://www.objc.io/issue-13/mvvm.html)
+这一篇是对 Objc.io 中《MVVM 介绍》的总结，罗列了自己阅读过程中记录的点。也可以前往 Objc.io 查看原文。中文版:[《MVVM 介绍》](https://objccn.io/issue-13-1/)英文版:[ Introduction to MVVM ](http://www.objc.io/issue-13/mvvm.html)
 
 
 
 
-**典型 MVC 结构图**
 
-![MVC](http://ac-wcsdzkyf.clouddn.com/3b1163cbfbeaf9c0b648.jpg)
-![View, ViewController, Model](http://ac-WCsdzkyf.clouddn.com/5adc48560f8412a57c10.jpg)
+## 典型 MVC 结构图
+
+![MVC](https://github.com/JonyFang/dev-notes/blob/master/images/2017-06-13-mvc.jpg?raw=true)
+![MVC](https://github.com/JonyFang/dev-notes/blob/master/images/2017-06-13-vvc-model.jpg?raw=true)
 
 `Model `呈现数据，`View `呈现用户界面，而` View Controller `调节它两者之间的交互。
 
-MVC 的缺点：没有解决 iOS 应用中日益增长的重量级视图控制器的问题。View Controller 中常包含一些“表示逻辑”，如将一个 NSDate 转换为一个格式化过的 NSString。
+`MVC `的缺点：没有解决 iOS 应用中日益增长的`重量级视图控制器`的问题。`View Controller `中常包含一些`“表示逻辑”`，如将一个` NSDate `转换为一个格式化过的` NSString`.
 
 ----
-# MVVM
+## MVVM
 
 **View Model 是什么**
 
-![MVVM](http://ac-wcsdzkyf.clouddn.com/45bd432516f1a38eb0a8.jpg)
+![MVVM](https://github.com/JonyFang/dev-notes/blob/master/images/2017-06-13-mvvm.jpg?raw=true)
 
-把“表示逻辑”相关的内容，放到` View Model `中。`View Model `位于` ViewController `与` Model `之间。
+把`“表示逻辑”`相关的内容，放到` View Model `中。`View Model `位于` ViewController `与` Model `之间。
 
-**总结下 MVVM：**
-一个 MVC 的增强版，连接了视图和控制器，并将表示逻辑从` View Controller `中移出放到一个新的对象里，即` View Model`。MVVM 听起来很复杂，其实本质上即是一个优化的 MVC 架构。
+总结下 MVVM： 一个 MVC 的增强版，连接了视图和控制器，并将表示逻辑从` View Controller `中移出放到一个新的对象里，即` View Model `。MVVM 听起来很复杂，其实本质上即是一个优化的 MVC 架构。
 
-**那么，为什么用 MVVM 呢？**
+那么，为什么用` MVVM `呢？
 
 - 减少` ViewController `的复杂性
-- 兼容当下的 MVC 架构
+- 兼容当下的` MVC `架构
 - 增加应用的可测试性（表示逻辑易于测试）
 
 ----
-# MVVM 示例
+## MVVM 示例
 
-列举一个 MVC 架构的例子，Model 层名为` Person`，View Controller 层名为 `PersionViewController`。代码如下：
+列举一个 MVC 架构的例子，`Model `层名为` Person `，`View Controller `层名为` PersionViewController`。代码如下：
 
 ```objc
 @interface Person : NSObject
@@ -62,7 +60,8 @@ MVC 的缺点：没有解决 iOS 应用中日益增长的重量级视图控制�
 @end
 ```
 
-在 PersonViewController 中应用` Person Model`。
+在` PersonViewController `中应用` Person `Model.
+
 ```objc
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -78,9 +77,10 @@ MVC 的缺点：没有解决 iOS 应用中日益增长的重量级视图控制�
 }
 ```
 
-上面即是一个标准的 MVC 模式，下面使用一个` View Model `来增强它。
+上面即是一个标准的` MVC `模式，下面使用一个` View Model `来增强它.
 
 ```objc
+//PersonViewModel.h
 @interface PersonViewModel : NSObject
 
 - (instancetype)initWithPerson:(Person *)person;
@@ -91,8 +91,8 @@ MVC 的缺点：没有解决 iOS 应用中日益增长的重量级视图控制�
 @property (nonatomic, readonly) NSString *birthdateText;
 
 @end
-```
-```objc
+
+//PersonViewModel.m
 @implementation PersonViewModel
 
 - (instancetype)initWithPerson:(Person *)person {
@@ -116,7 +116,7 @@ MVC 的缺点：没有解决 iOS 应用中日益增长的重量级视图控制�
 @end
 ```
 
-在` View Controller `中应用改进后的` View Model`，只需如下这样就可以了。
+在` View Controller `中应用改进后的` View Model `，只需如下这样就可以了.
 
 ```objc
 - (void)viewDidLoad {
@@ -126,12 +126,13 @@ MVC 的缺点：没有解决 iOS 应用中日益增长的重量级视图控制�
     self.birthdateLabel.text = self.viewModel.birthdateText;
 }
 ```
-对比第一种方式，可以看到 View Controller 相比之前，变得更轻量了。
+
+对比第一种方式，可以看到` View Controller `相比之前，变得更轻量了.
 
 ----
-# 测试
+## 测试
 
-在抽象` View Model `的过程中，我们尽可能得将“表示逻辑”移入` View Model `中。正因为` View Controller `中要处理的逻辑变少了，与之前相比较` View Controller `的测试变得容易了很多。同时` View Model `也易于测试。
+在抽象` View Model `的过程中，我们尽可能得将`“表示逻辑”`移入` View Model `中。正因为` View Controller `中要处理的逻辑变少了，与之前相比较` View Controller `的测试变得容易了很多。同时` View Model `也易于测试。如下测试案例：
 
 ```objc
 SpecBegin(Person)
@@ -154,19 +155,23 @@ SpecEnd
 ```
 
 ----
-# 总结
+## 总结
 
-上面的例子中，`Model `是不可变的，只要在初始化时指定` View Model `的属性即可。
-而对于可变` Model`，需要使用一些绑定机制，以在 Model 改变时，`View Model `随之更新。同时，`View Model `发生变化时，对应的 View 也需要得到及时的更新。
+上面的例子中，`Model `是不可变的，只要在初始化时指定` View Model `的属性即可。 而对于可变` Model `，需要使用一些绑定机制，以在` Model `改变时，`View Model `随之更新。同时，`View Model `发生变化时，对应的` View `也需要得到及时的更新。
 
 简而言之，过程即为：**Model 变更 -> 更新对应 View Model -> 更新对应 View**。
 
-在 iOS 中，我们可以通过 **KVO（Key Value Observation）**来处理过程中的绑定，但这样会需要大量的样板代码，可以使用 [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) 来作为替代。
+在 iOS 中，我们可以通过 **KVO（Key Value Observation）**来处理过程中的绑定，但这样会需要大量的样板代码，可以使用[ ReactiveCocoa ](https://github.com/ReactiveCocoa/ReactiveCocoa)来作为替代。
 
-<br>
-**前面内容讲到了：**
 
-- 如何从普通的` MVC `派生出` MVVM`
-- `MVVM `相比较` MVC `的优势在哪
-- `MVVM `中对于`可变的 Model`，如何进行实时绑定
+**罗列下前面内容，讲到了下面这几个：**
+
+- 如何从普通的MVC派生出MVVM
+- MVVM相比较MVC的优势在哪
+- MVVM中对于可变的 Model，如何进行实时绑定
+
+
+
+
+
 
