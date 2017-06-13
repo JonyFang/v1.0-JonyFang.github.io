@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Collections
+title: 收录
 permalink: /collection/
 icon: bookmark
 type: page
@@ -9,8 +9,7 @@ type: page
 * content
 {:toc}
 
-## 工具
-
-## Comments
-
-{% include comments.html %}
+### 2017.06.13
+> It's a right thing to do, and I'm tired of waiting someone else to do it for me. 
+> <br><br>
+> -- Elon Musk
