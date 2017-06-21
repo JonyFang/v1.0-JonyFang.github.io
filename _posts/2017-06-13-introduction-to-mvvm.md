@@ -170,7 +170,9 @@ SpecEnd
 - MVVM相比较MVC的优势在哪
 - MVVM中对于可变的 Model，如何进行实时绑定
 
+----
 
+欢迎转载，但请注明出处. [https://github.com/JonyFang/dev-notes](https://github.com/JonyFang/dev-notes)
 
 
 
