@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Git 全局忽略 .DS_Store"
+title:  "笔记 | Git 全局忽略 .DS_Store"
 date:   2017-04-15 08:37:18 +0800
 categories: 技术
 tags: Git
