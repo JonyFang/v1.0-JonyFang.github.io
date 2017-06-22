@@ -11,11 +11,16 @@ mathjax: true
 * content
 {:toc}
 
-最近项目中使用到阿里百川用户反馈模块，直接引入` Cocoapods 库`，编译时遇到了如下这样的 Error 信息：
+最近项目中使用到`阿里百川用户反馈`模块，直接引入` Cocoapods 库`，编译时无法编译通过。显示了下面这样的一条 Error 信息：
 
 ```objc
 '~/Pods/UTDID/UTDID.framework/UTDID(AidManager.o)' does not contain bitcode. You must rebuild it with bitcode enabled (Xcode setting ENABLE_BITCODE), obtain an updated library from the vendor, or disable bitcode for this target. for architecture arm64
 ```
+
+
+
+
+
 
 <br>
 Error 信息大概的意思是：
