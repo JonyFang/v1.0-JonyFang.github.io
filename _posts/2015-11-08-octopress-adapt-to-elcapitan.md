@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title:  "Octopress 适配 OS X El Capitan"

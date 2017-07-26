@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title:  "基于 Octopress & Github Pages 搭建博客（一）"
