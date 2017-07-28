@@ -3,7 +3,7 @@ layout: post
 title:  "Swift | protocol mutation 与 selector"
 date:   2017-07-28 15:47:20 +0800
 categories: 技术
-tags: iOS, Swift
+tags: iOS Swift
 author: JonyFang
 mathjax: true
 ---

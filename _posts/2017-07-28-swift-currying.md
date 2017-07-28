@@ -3,7 +3,7 @@ layout: post
 title:  "Swift | 柯里化"
 date:   2017-07-28 11:00:20 +0800
 categories: 技术
-tags: iOS, Swift
+tags: iOS Swift
 author: JonyFang
 mathjax: true
 ---
