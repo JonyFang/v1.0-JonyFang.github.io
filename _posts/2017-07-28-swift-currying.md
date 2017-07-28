@@ -25,10 +25,10 @@ mathjax: true
 
 ```swift
 func addTo(adder: Int) -> Int -> Int {
-	return {
-		num in
-		return num + adder
-	}
+    return {
+        num in
+        return num + adder
+    }
 }
 
 let addTwo = addTo(2) //addTwo: Int -> Int
@@ -58,39 +58,39 @@ greaterThan10(9)     // => false
 
 ```swift
 protocol TargetAction {
-	func performAction()
+    func performAction()
 }
 
 struct TargetActionWrapper<T: AnyObject>: TargetAction {
-	weak var target: T?
-	let action: (T) -> () -> ()
+    weak var target: T?
+    let action: (T) -> () -> ()
 
-	func performAction() -> () {
-		if let t = target {
-			action(t)()
-		}
-	}
+    func performAction() -> () {
+        if let t = target {
+            action(t)()
+        }
+    }
 }
 
 enum ControlEvent {
-	case TouchUpInside
-	case ValueChanged
+    case TouchUpInside
+    case ValueChanged
 }
 
 class Control {
-	var actions = [ControlEvent: TargetAction]()
+    var actions = [ControlEvent: TargetAction]()
 
-	func setTarget<T: AnyObject>(target: T, action: (T) -> () -> (), controlEvent: ControlEvent) {
-		action[controlEvent] = TargetActionWrapper(target: target, action: action)
-	}
+    func setTarget<T: AnyObject>(target: T, action: (T) -> () -> (), controlEvent: ControlEvent) {
+        action[controlEvent] = TargetActionWrapper(target: target, action: action)
+    }
 
-	func removeTargetForControlEvent(controlEvent: ControlEvent) {
-		actions[controlEvent] = nil
-	}
+    func removeTargetForControlEvent(controlEvent: ControlEvent) {
+        actions[controlEvent] = nil
+    }
 
-	func performActionForControlEvent(controlEvent: ControlEvent) {
-		actions[controlEvent]?.performAction()
-	}
+    func performActionForControlEvent(controlEvent: ControlEvent) {
+        actions[controlEvent]?.performAction()
+    }
 }
 ```
 
