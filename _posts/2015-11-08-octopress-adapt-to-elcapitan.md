@@ -3,7 +3,7 @@ layout: post
 title:  "Octopress 适配 OS X El Capitan"
 date:   2015-11-08 08:37:18 +0800
 categories: 技术
-tags: Cocoapods, Octopress
+tags: Cocoapods Octopress
 author: JonyFang
 mathjax: true
 ---
