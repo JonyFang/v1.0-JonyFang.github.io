@@ -7,7 +7,7 @@
 
 # Site settings
 title: Jony's Blog
-brief-intro: # Front-end Dev Engineer
+brief-intro: 自律为自由
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jonyfang.github.io" # the base hostname & protocol for your site
 
@@ -15,7 +15,7 @@ permalink: /:year/:month/:day/:title/
 
 # other links
 twitter_username: jony_chunfang
-# facebook_username: gaohaoyang.water
+# facebook_username: 
 github_username:  JonyFang
 email: jony.chunfang@gmail.com
 weibo_username: 3034766044
@@ -28,7 +28,7 @@ description_footer:
 # comments
 # two ways to comment, only choose one, and use your own short name
 # 两种评论插件，选一个就好了，使用自己的 short_name
-duoshuo_shortname: #hygblog
+# duoshuo_shortname: 
 disqus_shortname: jonyfang
 
 # statistic analysis 统计代码
@@ -56,5 +56,5 @@ tag_dir: tag/
 excerpt_separator: "\n\n\n\n"
 
 # paginate
-gems: [jekyll-paginate]
+plugins: [jekyll-paginate]
 paginate: 6
