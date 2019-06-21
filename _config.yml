@@ -7,7 +7,7 @@
 
 # Site settings
 title: Jony's Blog
-brief-intro: 无法自律的人无法自由
+brief-intro: 自律为自由
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jonyfang.github.io" # the base hostname & protocol for your site
 
@@ -56,5 +56,5 @@ tag_dir: tag/
 excerpt_separator: "\n\n\n\n"
 
 # paginate
-gems: [jekyll-paginate]
+plugins: [jekyll-paginate]
 paginate: 6
